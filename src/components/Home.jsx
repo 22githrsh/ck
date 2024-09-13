@@ -72,29 +72,28 @@ const Home = ({ image, heading, description }) => {
   //   );
   // }, []);
 
-const word = "Investment";
-const [displayedWord, setDisplayedWord] = useState("");
-const [index, setIndex] = useState(0);
+  const word = "Investment";
+  const [displayedWord, setDisplayedWord] = useState("");
+  const [index, setIndex] = useState(0);
 
-useEffect(() => {
-  if (index < word.length) {
-    const timeout = setTimeout(() => {
-      setDisplayedWord((prev) => prev + word[index]);
-      setIndex((prev) => prev + 1);
-    }, 200); // Adjust timing for letter appearance speed
+  useEffect(() => {
+    if (index < word.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedWord((prev) => prev + word[index]);
+        setIndex((prev) => prev + 1);
+      }, 200); // Adjust timing for letter appearance speed
 
-    return () => clearTimeout(timeout);
-  } else {
-    // Reset after the animation completes
-    const resetTimeout = setTimeout(() => {
-      setDisplayedWord("");
-      setIndex(0);
-    }, 1000); // Wait for 1 second before restarting
+      return () => clearTimeout(timeout);
+    } else {
+      // Reset after the animation completes
+      const resetTimeout = setTimeout(() => {
+        setDisplayedWord("");
+        setIndex(0);
+      }, 1000); // Wait for 1 second before restarting
 
-    return () => clearTimeout(resetTimeout);
-  }
-}, [index, word]);
-
+      return () => clearTimeout(resetTimeout);
+    }
+  }, [index, word]);
 
   const cardData = [
     {
@@ -149,7 +148,7 @@ useEffect(() => {
       </div>
     );
   };
-  
+
   // CardList component
   const CardList = () => {
     return (
@@ -199,39 +198,31 @@ useEffect(() => {
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-  
-
 
   useEffect(() => {
-
- var tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".page-3",
-    start: "top top",
-    end: "bottom top",
-    pin: true,
-    scrub:2
-  }
- })
- tl
-  
-
- .to('.box1',{
-  bottom:'0%'
- })
- .to('.box2',{
-  bottom:'0%'
- })
- .to('.box3',{
-  bottom:'0%'
- })
- .to('.box4',{
-  bottom:'0%'
- })
-
-  
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".page-3",
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        scrub: 2,
+      },
+    });
+    tl.to(".box1", {
+      bottom: "0%",
+    })
+      .to(".box2", {
+        bottom: "0%",
+      })
+      .to(".box3", {
+        bottom: "0%",
+      })
+      .to(".box4", {
+        bottom: "0%",
+      });
   }, []);
-  
+
   return (
     <div className="w-full overflow-hidden relative">
       <div className="page-1 flex items-center justify-start bg-[#EBECF0] min-h-screen w-full flex-col pt-16 rounded-t-2xl ">
@@ -245,13 +236,19 @@ useEffect(() => {
 
         <div className="text-center mb-10 px-4">
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[4rem] font-[600] leading-tight lg:leading-[6rem] ">
-            Start Your Global Real Estate <br />
-            <span className="text-emerald-600 border-b-4 border-emerald-600 absolute">
-              {displayedWord}
-            </span>{" "}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Today, One Brick at a Time
+            Start Your Global Real Estate
           </h1>
+          <div className="flex flex-col items-center justify-center p-4 md:flex-row md:space-x-4">
+  <div className="h-[5vh] w-full max-w-[30%] flex items-center justify-center">
+    <span className="text-emerald-600 border-b-4 border-emerald-600 text-3xl md:text-4xl">
+      {displayedWord}
+    </span>
+  </div>
+  <h1 className="text-center md:text-left mt-4 md:mt-0 text-2xl font-semibold md:text-4xl flex-shrink-0">
+    Today, One Brick at a Time
+  </h1>
+</div>
+
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mb-10 sm:mb-20">
@@ -281,44 +278,43 @@ useEffect(() => {
         </div>
 
         <div className="h-auto sm:h-[30vh] w-[90%] md:w-[80%] mx-auto flex flex-col sm:flex-row py-10 gap-10 sm:gap-0">
-  <div
-    ref={(el) => (statsRef.current[0] = el)}
-    className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
-  >
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-      55+
-    </h1>
-    <p className="text-lg sm:text-xl md:text-2xl">Locations</p>
-  </div>
-  <div
-    ref={(el) => (statsRef.current[1] = el)}
-    className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
-  >
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-      $800M
-    </h1>
-    <p className="text-lg sm:text-xl md:text-2xl">Sold</p>
-  </div>
-  <div
-    ref={(el) => (statsRef.current[2] = el)}
-    className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
-  >
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-      500+
-    </h1>
-    <p className="text-lg sm:text-xl md:text-2xl">Customers</p>
-  </div>
-  <div
-    ref={(el) => (statsRef.current[3] = el)}
-    className="flex-1 flex items-center justify-center flex-col text-center"
-  >
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-      9.8/10
-    </h1>
-    <p className="text-lg sm:text-xl md:text-2xl">Ratings</p>
-  </div>
-</div>
-
+          <div
+            ref={(el) => (statsRef.current[0] = el)}
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
+              55+
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl">Locations</p>
+          </div>
+          <div
+            ref={(el) => (statsRef.current[1] = el)}
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
+              $800M
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl">Sold</p>
+          </div>
+          <div
+            ref={(el) => (statsRef.current[2] = el)}
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
+              500+
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl">Customers</p>
+          </div>
+          <div
+            ref={(el) => (statsRef.current[3] = el)}
+            className="flex-1 flex items-center justify-center flex-col text-center"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
+              9.8/10
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl">Ratings</p>
+          </div>
+        </div>
       </div>
       <div className="page-2 h-screen w-full relative bg-[#EBECF0] flex flex-col md:flex-row items-center md:items-end justify-center p-5">
         {/* Left Section */}
@@ -435,39 +431,62 @@ useEffect(() => {
         </div>
       </div>
       <div className="page-3 h-screen w-full bg-[#EBECF0] flex flex-col md:flex-row items-start md:items-center justify-between relative overflow-hidden">
-  <div className="p-4 md:p-0 md:w-1/2">
-    <h1 className="text-3xl md:ml-16 mb-10 md:text-[4rem] mt-10 md:mt-20">Our <span className="text-emerald-600">Home</span></h1>
-    <p className="w-full  md:ml-16  md:w-2/3 text-lg md:text-2xl mt-4">
-      Discover a diverse range of luxurious homes, from secluded villas to exclusive penthouses, tailored to your discerning taste.
-    </p>
-  </div>
-  <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
-    <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%]">
-      <img className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-    </div>
-    <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
-      <img className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-    </div>
-    <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
-      <img className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-    </div>
-    <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
-      <img className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-    </div>
-  </div>
-</div>
+        <div className="p-4 md:p-0 md:w-1/2">
+          <h1 className="text-3xl md:ml-16 mb-10 md:text-[4rem] mt-10 md:mt-20">
+            Our <span className="text-emerald-600">Home</span>
+          </h1>
+          <p className="w-full  md:ml-16  md:w-2/3 text-lg md:text-2xl mt-4">
+            Discover a diverse range of luxurious homes, from secluded villas to
+            exclusive penthouses, tailored to your discerning taste.
+          </p>
+        </div>
+        <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
+          <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%]">
+            <img
+              className="h-full w-full object-cover"
+              src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
+            <img
+              className="h-full w-full object-cover"
+              src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
+            <img
+              className="h-full w-full object-cover"
+              src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
+            <img
+              className="h-full w-full object-cover"
+              src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
 
-     
-
-<div className="page-5 bg-[#EBECF0] min-h-screen w-full flex flex-col items-center pt-20 px-4 sm:px-6 md:px-8">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 text-black">
-    What Is Fractional <span className="text-emerald-600">Ownership?</span>
-  </h1>
-  <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-center mb-10 max-w-xl md:max-w-2xl">
-    Fractional ownership has democratized the real estate world, creating a level playing field for both the common man and billion-dollar institutions alike. It’s revolutionizing real estate investment by allowing you to invest in top-tier properties without hefty capital requirements. By owning a fraction of these properties, you gain a proportional share of their value, income, and appreciation.
-  </p>
-  <CardList />
-</div>
+      <div className="page-5 bg-[#EBECF0] min-h-screen w-full flex flex-col items-center pt-20 px-4 sm:px-6 md:px-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 text-black">
+          What Is Fractional{" "}
+          <span className="text-emerald-600">Ownership?</span>
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-center mb-10 max-w-xl md:max-w-2xl">
+          Fractional ownership has democratized the real estate world, creating
+          a level playing field for both the common man and billion-dollar
+          institutions alike. It’s revolutionizing real estate investment by
+          allowing you to invest in top-tier properties without hefty capital
+          requirements. By owning a fraction of these properties, you gain a
+          proportional share of their value, income, and appreciation.
+        </p>
+        <CardList />
+      </div>
 
       <div className="page-6 h-screen w-full bg-[#EBECF0] flex justify-center items-center">
         <div className="w-full sm:w-3/4 lg:w-1/2 p-5">
@@ -509,27 +528,38 @@ useEffect(() => {
         </div>
       </div>
       <div className="page-7 min-h-screen w-full bg-[#EBECF0] flex items-center justify-center pt-10 flex-col px-4">
-  <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-semibold text-center mb-6">
-    The <span className="text-emerald-600">Launch</span>
-  </h1>
-  <video
-    loop
-    autoPlay
-    muted
-    className="mb-8 sm:mb-16 h-[50vh] sm:h-[70vh] md:h-[80vh] w-full max-w-[1200px] object-cover bg-red-500 rounded-lg"
-    src="https://videos.pexels.com/video-files/2887459/2887459-hd_1920_1080_25fps.mp4"
-  ></video>
-  <p className="text-xl sm:text-2xl md:text-3xl mb-6 text-center">
-    No more <span className="text-emerald-600 font-bold">FOMO</span> by starting today.
-  </p>
-  <p className="text-[1rem] sm:text-[1.25rem] md:text-[1.5rem] w-full sm:w-3/4 text-center mb-6 px-4">
-    Each month, our team of real estate experts will carefully select and present a cluster of 3-5 premier residential and commercial properties. In the post-COVID era, 
-    <span className="text-emerald-700"> Dubai has emerged as the top destination for millions globally.</span> Therefore, we are excited to kick off our first edition with three exclusive properties in the heart of Dubai’s “Golden” district.
-  </p>
-  <Link className="px-10 sm:px-12 md:px-16 rounded-lg mb-10 py-3 sm:py-4 bg-emerald-600 text-white text-lg sm:text-xl md:text-2xl" to="/invest">
-    Start Investing
-  </Link>
-</div>
+        <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-semibold text-center mb-6">
+          The <span className="text-emerald-600">Launch</span>
+        </h1>
+        <video
+          loop
+          autoPlay
+          muted
+          className="mb-8 sm:mb-16 h-[50vh] sm:h-[70vh] md:h-[80vh] w-full max-w-[1200px] object-cover bg-red-500 rounded-lg"
+          src="https://videos.pexels.com/video-files/2887459/2887459-hd_1920_1080_25fps.mp4"
+        ></video>
+        <p className="text-xl sm:text-2xl md:text-3xl mb-6 text-center">
+          No more <span className="text-emerald-600 font-bold">FOMO</span> by
+          starting today.
+        </p>
+        <p className="text-[1rem] sm:text-[1.25rem] md:text-[1.5rem] w-full sm:w-3/4 text-center mb-6 px-4">
+          Each month, our team of real estate experts will carefully select and
+          present a cluster of 3-5 premier residential and commercial
+          properties. In the post-COVID era,
+          <span className="text-emerald-700">
+            {" "}
+            Dubai has emerged as the top destination for millions globally.
+          </span>{" "}
+          Therefore, we are excited to kick off our first edition with three
+          exclusive properties in the heart of Dubai’s “Golden” district.
+        </p>
+        <Link
+          className="px-10 sm:px-12 md:px-16 rounded-lg mb-10 py-3 sm:py-4 bg-emerald-600 text-white text-lg sm:text-xl md:text-2xl"
+          to="/invest"
+        >
+          Start Investing
+        </Link>
+      </div>
 
       <div className="page-8 h-screen w-full bg-transparent pointer-events-none"></div>
     </div>
