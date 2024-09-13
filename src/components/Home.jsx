@@ -222,8 +222,7 @@ const Home = () => {
     );
   };
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const followerRef = useRef(null);
+
 
 
 
@@ -475,45 +474,46 @@ const Home = () => {
         </div>
       </div>
       <div className="page-3 h-screen w-full bg-[#EBECF0] flex flex-col md:flex-row items-start md:items-center justify-between relative overflow-hidden">
-        <div className="p-4 md:p-0 md:w-1/2">
-          <h1 className="text-3xl md:ml-16 mb-10 md:text-[4rem] mt-10 md:mt-20">
-            {heading}
-          </h1>
-          <p className="w-full md:ml-16 md:w-2/3 text-lg md:text-2xl mt-4">
-            {description}
-          </p>
-        </div>
-        <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
-          <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%]  rounded-lg overflow-hidden">
-            <img
-              className="h-full w-full object-cover rounded-lg"
-              src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </div>
-          <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
-            <img
-              className="h-full w-full object-cover rounded-lg"
-              src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </div>
-          <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
-            <img
-              className="h-full w-full object-cover rounded-lg"
-              src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </div>
-          <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
-            <img
-              className="h-full w-full object-cover rounded-lg"
-              src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
+  <div className="p-4 md:p-0 md:w-1/2">
+    <h1 className="text-3xl md:ml-16 mb-4 md:mb-10 mt-4 md:mt-20"> {/* Adjusted margin-bottom for mobile */}
+      {heading}
+    </h1>
+    <p className="w-full md:ml-16 md:w-2/3 text-lg md:text-2xl mt-2"> {/* Adjusted margin-top for mobile */}
+      {description}
+    </p>
+  </div>
+  <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
+    <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%] rounded-lg overflow-hidden">
+      <img
+        className="h-full w-full object-cover rounded-lg"
+        src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+    <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
+      <img
+        className="h-full w-full object-cover rounded-lg"
+        src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+    <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
+      <img
+        className="h-full w-full object-cover rounded-lg"
+        src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+    <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
+      <img
+        className="h-full w-full object-cover rounded-lg"
+        src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+
 
       <div className="page-5 bg-[#EBECF0] min-h-screen w-full flex flex-col items-center pt-20 px-4 sm:px-6 md:px-8">
         <div className="container mx-auto my-16 px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
