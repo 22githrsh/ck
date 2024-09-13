@@ -14,64 +14,14 @@ import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Home = ({ image, heading, description }) => {
+const Home = () => {
+
   // Refs for the elements to animate
   const launchInfoRef = useRef(null);
   const headlineRef = useRef(null);
   const buttonsRef = useRef([]);
   const videoContainerRef = useRef(null);
   const statsRef = useRef([]);
-  // useEffect(() => {
-  //   // Animation for the "newly launched" section
-  //   gsap.fromTo(
-  //     launchInfoRef.current,
-  //     { opacity: 0, y: -50 }, // from state
-  //     { opacity: 1, y: 0, duration: 1, ease: "power3.out" } // to state
-  //   );
-
-  //   // Animation for the headline
-  //   gsap.fromTo(
-  //     headlineRef.current,
-  //     { opacity: 0, y: -50 },
-  //     { opacity: 1, y: 0, duration: 1, delay: 0.5, ease: "power3.out" }
-  //   );
-
-  //   // Animation for buttons
-  //   gsap.fromTo(
-  //     buttonsRef.current,
-  //     { opacity: 0, y: -50 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       delay: 1,
-  //       stagger: 0.2,
-  //     }
-  //   );
-
-  //   // Animation for the video container
-  //   gsap.fromTo(
-  //     videoContainerRef.current,
-  //     { opacity: 0, y: -50 },
-  //     { opacity: 1, y: 0, duration: 1.5, ease: "power3.out", delay: 1.5 }
-  //   );
-
-  //   // Animation for the stats section
-  //   gsap.fromTo(
-  //     statsRef.current,
-  //     { opacity: 0, y: -50 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       delay: 2,
-  //       stagger: 0.2,
-  //     }
-  //   );
-  // }, []);
-
   const word = "Investment";
   const [displayedWord, setDisplayedWord] = useState("");
   const [index, setIndex] = useState(0);
@@ -95,75 +45,7 @@ const Home = ({ image, heading, description }) => {
     }
   }, [index, word]);
 
-  const cardData = [
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1663013296014-93202773e968?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "New York",
-      description: "Discover luxury living in the heart of New York.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1526495124232-a04e1849168c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "Paris",
-      description: "Experience elegance and charm in Paris.",
-    },
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1700860838212-10c44393f9e5?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "Dubai",
-      description: "Explore ultra-modern living spaces in Dubai.",
-    },
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1681429766562-fffa63d382c2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "Tokyo",
-      description: "Find the perfect balance of culture and luxury in Tokyo.",
-    },
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1681429766540-f05bd18b4002?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "Sydney",
-      description: "Enjoy breathtaking views and luxury homes in Sydney.",
-    },
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1681429767035-28d193b510bd?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      heading: "London",
-      description: "Live in the iconic and prestigious areas of London.",
-    },
-  ];
-
   // Card component
-  const Card = ({ image, heading, description }) => {
-    return (
-      <div className="border border-gray-300 p-5 m-2 rounded-lg w-full sm:w-1/3 transition-transform transform hover:scale-105 duration-300 ease-in-out will-change-transform">
-        <img
-          src={image}
-          alt={heading}
-          className="w-full h-80 object-cover rounded-md mb-4 transition-transform duration-300 ease-in-out will-change-transform"
-        />
-        <h2 className="text-xl font-semibold mb-2">{heading}</h2>
-        <p className="text-gray-600">{description}</p>
-      </div>
-    );
-  };
-
-  // CardList component
-  const CardList = () => {
-    return (
-      <div className="flex flex-wrap items-center justify-center gap-10 ">
-        {cardData.map((card, index) => (
-          <Card
-            key={index}
-            image={card.image}
-            heading={card.heading}
-            description={card.description}
-          />
-        ))}
-      </div>
-    );
-  };
 
   const faqData = [
     {
@@ -199,16 +81,49 @@ const Home = ({ image, heading, description }) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const [heading, setHeading] = useState("Our Home");
+  const [description, setDescription] = useState(
+    "Discover a diverse range of luxurious homes, from secluded villas to exclusive penthouses, tailored to your discerning taste."
+  );
+
   useEffect(() => {
-    var tl = gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".page-3",
         start: "top top",
         end: "bottom top",
         pin: true,
-        scrub: 2,
+        scrub: 4,
+
+        onUpdate: (self) => {
+          // Update text based on scroll progress
+          const progress = self.progress;
+
+          if (progress < 0.25) {
+            setHeading("Our Home");
+            setDescription(
+              "Discover a diverse range of luxurious homes, from secluded villas to exclusive penthouses, tailored to your discerning taste."
+            );
+          } else if (progress < 0.5) {
+            setHeading("Elegant Villas");
+            setDescription(
+              "Explore our selection of elegant villas that offer both luxury and comfort."
+            );
+          } else if (progress < 0.75) {
+            setHeading("Exclusive Penthouses");
+            setDescription(
+              "Experience the pinnacle of luxury with our exclusive penthouses in prime locations."
+            );
+          } else {
+            setHeading("Your Dream Home");
+            setDescription(
+              "Find the perfect home that suits your lifestyle and preferences."
+            );
+          }
+        },
       },
     });
+
     tl.to(".box1", {
       bottom: "0%",
     })
@@ -222,6 +137,95 @@ const Home = ({ image, heading, description }) => {
         bottom: "0%",
       });
   }, []);
+
+  const [stats, setStats] = useState({
+    locations: 0,
+    sold: 0,
+    customers: 0,
+    ratings: 0,
+  });
+
+  // Helper function to animate numbers
+  const animateValue = (refIndex, start, end, duration) => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const value = Math.floor(progress * (end - start) + start);
+      if (refIndex === 0) setStats((prev) => ({ ...prev, locations: value }));
+      if (refIndex === 1) setStats((prev) => ({ ...prev, sold: value }));
+      if (refIndex === 2) setStats((prev) => ({ ...prev, customers: value }));
+      if (refIndex === 3)
+        setStats((prev) => ({ ...prev, ratings: value / 10 }));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  // useEffect to trigger the animation
+  useEffect(() => {
+    animateValue(0, 0, 55, 1500); // Locations
+    animateValue(1, 0, 800, 1500); // Sold ($800M)
+    animateValue(2, 0, 500, 1500); // Customers
+    animateValue(3, 0, 98, 1500); // Ratings (9.8/10)
+  }, []);
+  const articles = [
+    {
+      title: "Emaar ",
+      description:
+        "Address: Residence dubai hills estate {1 BHK} Purchase price: 1.95 M Holding period Exit price ROI",
+
+      imageUrl:
+        "https://images.pexels.com/photos/1441058/pexels-photo-1441058.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Replace with a real image URL
+    },
+    {
+      title: "Sobha",
+      description: "Purchase Price: 2BHK, 1.95MHolding period Exit Price ROI",
+      imageUrl:
+        "https://images.pexels.com/photos/13575574/pexels-photo-13575574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Replace with a real image URL
+    },
+    {
+      title: "	Danube Diamondz",
+      description:
+        "Purchase Price: Studio, AED 1.3M Holding period Exit PriceROI",
+
+      imageUrl:
+        "https://images.pexels.com/photos/28279787/pexels-photo-28279787/free-photo-of-the-burj-tower-is-seen-from-above.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Replace with a real image URL
+    },
+  ];
+
+  const NewsCard = ({ title, description, date, imageUrl }) => {
+    return (
+      <div className="flex flex-col md:flex-row items-center p-6 mb-8 bg-white rounded-lg border border-black hover:bg-[#059669] transition ease hover:text-white">
+        {/* Left Section (Image) */}
+        <div className="w-full md:w-1/4 mb-4 md:mb-0">
+          <img
+            src={imageUrl}
+            alt="news"
+            className="w-full h-48 md:h-52 rounded-md object-cover"
+          />
+        </div>
+        {/* Right Section (Content) */}
+        <div className="md:ml-6 w-full md:w-3/4">
+          <h3 className="text-xl md:text-2xl font-semibold text-emerald-600">
+            {title}
+          </h3>
+          <p className="text-gray-700 mt-2 text-sm md:text-base md:w-1/3">
+            {description}
+          </p>
+          <p className="text-sm text-gray-500 mt-4"> {date}</p>
+        </div>
+      </div>
+    );
+  };
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const followerRef = useRef(null);
+
+
 
   return (
     <div className="w-full overflow-hidden relative">
@@ -239,28 +243,27 @@ const Home = ({ image, heading, description }) => {
             Start Your Global Real Estate
           </h1>
           <div className="flex flex-col items-center justify-center p-4 md:flex-row md:space-x-4">
-  <div className="h-[5vh] w-full max-w-[30%] flex items-center justify-center">
-    <span className="text-emerald-600 border-b-4 border-emerald-600 text-3xl md:text-4xl">
-      {displayedWord}
-    </span>
-  </div>
-  <h1 className="text-center md:text-left mt-4 md:mt-0 text-2xl font-semibold md:text-4xl flex-shrink-0">
-    Today, One Brick at a Time
-  </h1>
-</div>
-
+            <div className="h-[5vh] w-full max-w-[30%] flex items-center justify-center">
+              <span className="text-emerald-600 border-b-4 border-emerald-600 text-3xl md:text-4xl">
+                {displayedWord}
+              </span>
+            </div>
+            <h1 className="text-center md:text-left mt-4 md:mt-0 text-2xl font-semibold md:text-4xl flex-shrink-0">
+              Today, One Brick at a Time
+            </h1>
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 mb-10 sm:mb-20">
           <button
             ref={(el) => (buttonsRef.current[0] = el)}
-            className="px-2 py-2 sm:px-7 sm:py-4 rounded-xl scale-[1] border border-black"
+            className="px-2 py-2 sm:px-7 sm:py-4 rounded-xl scale-[1] text-white border border-emerald-600 bg-emerald-600 transition-all transition  hover:bg-transparent  hover:text-[#000]"
           >
             View Properties
           </button>
           <button
             ref={(el) => (buttonsRef.current[1] = el)}
-            className="px-2 py-2 sm:px-7 sm:py-4 rounded-xl scale-[1] text-white bg-emerald-600"
+            className="px-2 py-2 sm:px-7 sm:py-4 rounded-xl scale-[1] text-white bg-emerald-600  hover:bg-emerald-500 transition-all transition"
           >
             Book a Call
           </button>
@@ -270,161 +273,202 @@ const Home = ({ image, heading, description }) => {
           ref={videoContainerRef}
           className="h-[40vh] sm:h-[60vh] md:h-[80vh] lg:h-[100vh] w-[90%] md:w-[80%] rounded-2xl bg-black overflow-hidden border border-white mb-10"
         >
-          <img
+          <video
+            loop
+            autoPlay
+            muted
             className="h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
+            src="https://videos.pexels.com/video-files/10395146/10395146-hd_1920_1080_30fps.mp4"
+          ></video>
         </div>
 
         <div className="h-auto sm:h-[30vh] w-[90%] md:w-[80%] mx-auto flex flex-col sm:flex-row py-10 gap-10 sm:gap-0">
           <div
             ref={(el) => (statsRef.current[0] = el)}
-            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-6 sm:pb-0"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-              55+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-1 sm:mb-3">
+              {stats.locations}+
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl">Locations</p>
+            <p className="text-base sm:text-lg md:text-xl">Locations</p>
           </div>
+
           <div
             ref={(el) => (statsRef.current[1] = el)}
-            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-6 sm:pb-0"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-              $800M
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-1 sm:mb-3">
+              ${stats.sold}M
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl">Sold</p>
+            <p className="text-base sm:text-lg md:text-xl">Sold</p>
           </div>
+
           <div
             ref={(el) => (statsRef.current[2] = el)}
-            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-10 sm:pb-0"
+            className="flex-1 flex items-center justify-center flex-col border-b sm:border-b-0 sm:border-r-2 border-black text-center pb-6 sm:pb-0"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-              500+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-1 sm:mb-3">
+              {stats.customers}+
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl">Customers</p>
+            <p className="text-base sm:text-lg md:text-xl">Customers</p>
           </div>
+
           <div
             ref={(el) => (statsRef.current[3] = el)}
-            className="flex-1 flex items-center justify-center flex-col text-center"
+            className="flex-1 flex items-center justify-center flex-col text-center pt-6 sm:pt-0"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-2 sm:mb-4">
-              9.8/10
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-1 sm:mb-3">
+              {stats.ratings.toFixed(1)}/10
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl">Ratings</p>
+            <p className="text-base sm:text-lg md:text-xl">Ratings</p>
           </div>
         </div>
       </div>
-      <div className="page-2 h-screen w-full relative bg-[#EBECF0] flex flex-col md:flex-row items-center md:items-end justify-center p-5">
-        {/* Left Section */}
-        <div className="h-auto  md:h-screen w-full md:w-1/2 flex flex-col items-start p-5 md:pl-10 md:pt-20">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-1 sm:mb-6 md:mb-10">
-            LET'S GET IN <br />
-            <span className="text-emerald-600">TOUCH</span>
-          </h1>
-          {/* Swiper Section */}
-          <div className="w-full md:w-4/5 lg:w-3/4 h-[26vh] md:h-[50vh] ">
-            <Swiper
-              effect={"coverflow"}
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={"auto"}
-              modules={[EffectCoverflow, Pagination, Autoplay]}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-              }}
-              pagination={{ clickable: false }}
-              autoplay={{
-                delay: 2000, // 3 seconds delay
-                disableOnInteraction: false, // Continue autoplay after user interaction
-              }}
-              className="mySwiper"
-            >
-              {/* Slides */}
-              <SwiperSlide className="flex items-center justify-center rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Slide 1"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1462007895615-c8c073bebcd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Slide 2"
-                />
-              </SwiperSlide>
-              <SwiperSlide className="flex items-center justify-center rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Slide 3"
-                />
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
-        {/* Right Section */}
-        <div className="h-auto md:h-screen w-full md:w-1/2 md:mt-0">
-          <div
-            className="relative h-[60vh] md:h-full w-full bg-cover bg-center rounded-lg"
-            style={{
-              backgroundImage:
-                "url('https://source.unsplash.com/1600x900/?realestate')",
-            }}
-          >
-            {/* Content Section */}
-            <div className="relative z-10 flex items-center justify-center h-full p-5">
-              <div className="rounded-lg p-5 md:p-10 max-w-xl w-full bg-opacity-75  ">
-                {/* Form Section */}
-                <form className="space-y-5">
-                  {/* Name Field */}
+      <div className="page-2 min-h-screen w-full relative bg-[#EBECF0] flex flex-col md:flex-row items-center md:items-center justify-around pt-32">
+        <div className="bg-[#EBECF0] py-10 px-4 sm:px-6 lg:px-8 w-full max-w-full">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 md:pl-10 gap-10 ">
+            {/* Form Section */}
+            <div>
+              <h2 className="text-3xl font-semibold text-gray-900">
+                Get in <span className="text-emerald-600">touch</span>
+              </h2>
+              <p className="mt-4 text-lg text-gray-500">
+                Our friendly team would love to hear from you.
+              </p>
+
+              <form className="mt-8 space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      First name
+                    </label>
                     <input
                       type="text"
-                      placeholder="Your Name"
-                      className="w-full px-4 py-3 bg-transparent border-b border-emerald-600 focus:outline-none"
+                      name="first-name"
+                      id="first-name"
+                      autoComplete="given-name"
+                      className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="First name"
                     />
                   </div>
 
-                  {/* Email Field */}
                   <div>
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      className="w-full px-4 py-3 bg-transparent border-b border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Country Field */}
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Your Country"
-                      className="w-full px-4 py-3 bg-transparent border-b border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Mobile Number Field */}
-                  <div>
+                    <label
+                      htmlFor="last-name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Last name
+                    </label>
                     <input
                       type="text"
-                      placeholder="Your Mobile Number"
-                      className="w-full px-4 py-3 bg-transparent border-b border-emerald-600 focus:outline-none"
+                      name="last-name"
+                      id="last-name"
+                      autoComplete="family-name"
+                      className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="Last name"
                     />
                   </div>
+                </div>
 
-                  {/* Submit Button */}
-                  <button className="w-full py-3 bg-emerald-600 text-white font-semibold rounded-md hover:bg-emerald-700 transition duration-300">
-                    Contact Us
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    placeholder="you@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone-number"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Phone number
+                  </label>
+                  <div className="mt-1 relative rounded-md shadow-sm">
+                    <select
+                      id="country"
+                      name="country"
+                      className="absolute inset-y-0 left-0 pl-3 pr-8 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    >
+                      <option>US</option>
+                      <option>CA</option>
+                      <option>EU</option>
+                    </select>
+                    <input
+                      type="text"
+                      name="phone-number"
+                      id="phone-number"
+                      className="block w-full pl-16 px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    id="agree"
+                    name="agree"
+                    type="checkbox"
+                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  />
+                  <label
+                    htmlFor="agree"
+                    className="ml-2 block text-sm text-gray-900"
+                  >
+                    You agree to our friendly{" "}
+                    <a href="#" className="text-emerald-600">
+                      privacy policy
+                    </a>
+                    .
+                  </label>
+                </div>
+
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Get in touch
                   </button>
-                </form>
+                </div>
+              </form>
+            </div>
+
+            {/* Image or Information Section */}
+            <div className="hidden lg:flex items-center justify-center md:w-[100vh]">
+              <div className="max-w-md md:w-[70%]">
+                <img
+                  src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt="Person"
+                  className="rounded-lg"
+                />
+                {/* <video loop autoPlay muted className="rounded-sm md:block" src="https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></video> */}
+
+                <blockquote className="mt-6">
+                  <p className="text-lg font-medium text-gray-900">
+                    "Untitled UI is the perfect tool for startups to keep track
+                    of their finances. Their intuitive dashboard and reporting
+                    capabilities have saved our team hours of manual work."
+                  </p>
+                  <footer className="mt-4">
+                    <p className="text-base font-medium text-gray-700">
+                      — VASUDEV, Founder at Grow Together
+                    </p>
+                  </footer>
+                </blockquote>
               </div>
             </div>
           </div>
@@ -433,38 +477,37 @@ const Home = ({ image, heading, description }) => {
       <div className="page-3 h-screen w-full bg-[#EBECF0] flex flex-col md:flex-row items-start md:items-center justify-between relative overflow-hidden">
         <div className="p-4 md:p-0 md:w-1/2">
           <h1 className="text-3xl md:ml-16 mb-10 md:text-[4rem] mt-10 md:mt-20">
-            Our <span className="text-emerald-600">Home</span>
+            {heading}
           </h1>
-          <p className="w-full  md:ml-16  md:w-2/3 text-lg md:text-2xl mt-4">
-            Discover a diverse range of luxurious homes, from secluded villas to
-            exclusive penthouses, tailored to your discerning taste.
+          <p className="w-full md:ml-16 md:w-2/3 text-lg md:text-2xl mt-4">
+            {description}
           </p>
         </div>
         <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
-          <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%]">
+          <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%]  rounded-lg overflow-hidden">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-lg"
               src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </div>
           <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-lg"
               src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </div>
           <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-lg"
               src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </div>
           <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-lg"
               src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
@@ -473,21 +516,58 @@ const Home = ({ image, heading, description }) => {
       </div>
 
       <div className="page-5 bg-[#EBECF0] min-h-screen w-full flex flex-col items-center pt-20 px-4 sm:px-6 md:px-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 text-black">
-          What Is Fractional{" "}
-          <span className="text-emerald-600">Ownership?</span>
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-center mb-10 max-w-xl md:max-w-2xl">
-          Fractional ownership has democratized the real estate world, creating
-          a level playing field for both the common man and billion-dollar
-          institutions alike. It’s revolutionizing real estate investment by
-          allowing you to invest in top-tier properties without hefty capital
-          requirements. By owning a fraction of these properties, you gain a
-          proportional share of their value, income, and appreciation.
-        </p>
-        <CardList />
-      </div>
+        <div className="container mx-auto my-16 px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex justify-center items-center">
+            <img
+              src="https://images.pexels.com/photos/4246089/pexels-photo-4246089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Learning"
+              className="rounded-lg"
+            />
+          </div>
+          {/* Left Section */}
+          <div className="space-y-6">
+            <h2 className="text-emerald-600 text-lg">Overview</h2>
+            <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+              What Is Fractional <br />{" "}
+              <span className="text-emerald-600">Ownership?</span>{" "}
+            </h1>
+            <p className="text-gray-600">
+              Fractional ownership has democratized the real estate world,
+              creating a level playing field for both the common man and
+              billion-dollar institutions alike. It’s revolutionizing real
+              estate investment by allowing you to invest in top-tier properties
+              without hefty capital requirements. By owning a fraction of these
+              properties, you gain a proportional share of their value, income,
+              and appreciation.
+            </p>
+          </div>
 
+          {/* Right Section */}
+        </div>
+      </div>
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-8">
+          {/* Section Title */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-900">Cities</h2>
+            <button className="mt-4 px-4 py-2 border-2 border-black text-black rounded-full hover:bg-black hover:text-white">
+              All cities
+            </button>
+          </div>
+
+          {/* News Cards */}
+          <div className="grid grid-cols-1 gap-6">
+            {articles.map((article, index) => (
+              <NewsCard
+                key={index}
+                title={article.title}
+                description={article.description}
+                imageUrl={article.imageUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <div className="page-6 h-screen w-full bg-[#EBECF0] flex justify-center items-center">
         <div className="w-full sm:w-3/4 lg:w-1/2 p-5">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-6">
@@ -560,7 +640,6 @@ const Home = ({ image, heading, description }) => {
           Start Investing
         </Link>
       </div>
-
       <div className="page-8 h-screen w-full bg-transparent pointer-events-none"></div>
     </div>
   );

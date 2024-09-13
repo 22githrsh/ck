@@ -16,9 +16,10 @@ const App = () => {
 
   return (
     <Router>
+
       <div className="app">
         {/* Fixed Navigation Bar */}
-        <nav className="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-between items-center px-4 md:px-16 z-[9999]">
+        <nav className="fixed top-0 left-0 w-full bg-white  p-4 flex justify-between items-center px-4 md:px-16 z-[9999]">
   {/* Logo */}
   <div className="logo text-xl font-bold">
     <Link className='text-emerald-600' to="/">Grow Together</Link>
@@ -44,12 +45,8 @@ const App = () => {
     <Link to="/invest" onClick={toggleMobileMenu}>
       ROI
     </Link>
-    <Link to="/paymentRazorpay" onClick={toggleMobileMenu}>
-      Invest
-    </Link>
-    <Link className='mb-[16rem] md:mb-0' to="/location" onClick={toggleMobileMenu}>
-      Location
-    </Link>
+    
+ 
    <h1 className='md:hidden text-emerald-600 text-5xl font-semibold'>Grow Together</h1>
     {/* Search Input (Only Visible on Desktop) */}
     <div className="relative flex items-center hidden md:flex">
