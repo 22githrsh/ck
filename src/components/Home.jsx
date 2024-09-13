@@ -474,7 +474,7 @@ const Home = () => {
         </div>
       </div>
       <div className="page-3 h-screen w-full bg-[#EBECF0] flex flex-col md:flex-row items-start md:items-center justify-between relative overflow-hidden">
-  <div className="p-4 md:p-0 md:w-1/2">
+  <div className="p-4 md:p-0 md:w-1/2 items-end justify-center pt-[10rem]">
     <h1 className="text-3xl md:ml-16 mb-4 md:mb-10 mt-4 md:mt-20"> {/* Adjusted margin-bottom for mobile */}
       {heading}
     </h1>
