@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wrapper h1{
+    animation: wrapper 10s infinite linear;
+    -webkit-text-stroke-color: black;
+}
+
+@keyframes wrapper {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
