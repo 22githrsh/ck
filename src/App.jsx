@@ -18,51 +18,51 @@ const App = () => {
     <Router>
       <div className="app">
         {/* Fixed Navigation Bar */}
-        <nav className="fixed  top-0 left-0 w-full bg-white shadow-md p-4 flex justify-between items-center px-4 md:px-16 z-[9999]">
-          {/* Logo */}
-          <div className="logo text-xl font-bold">
-            <Link to="/">Grow Together</Link>
-          </div>
+        <nav className="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-between items-center px-4 md:px-16 z-[9999]">
+  {/* Logo */}
+  <div className="logo text-xl font-bold">
+    <Link className='text-emerald-600' to="/">Grow Together</Link>
+  </div>
 
-          {/* Hamburger Menu for Mobile */}
-          <div className="md:hidden">
-            <button onClick={toggleMobileMenu} className="text-gray-600">
-              <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} size="lg" />
-            </button>
-          </div>
+  {/* Hamburger Menu for Mobile */}
+  <div className="md:hidden">
+    <button onClick={toggleMobileMenu} className="text-gray-600">
+      <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} size="lg" />
+    </button>
+  </div>
 
-          {/* Navigation Links (Hidden on Mobile, Visible on Desktop) */}
-          <div
-            className={`nav-links md:flex items-center justify-center gap-7 ${
-              isMobileMenuOpen ? 'flex' : 'hidden'
-            } flex-col md:flex-row absolute md:static top-16 items-center  justify-center left-0 w-full h-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-transform duration-300 ease-in-out transform ${
-              isMobileMenuOpen ? 'translate-y-20' : '-translate-y-full'
-            } md:translate-y-0`}
-          >
-            <Link className="font-[600]" to="/" onClick={toggleMobileMenu}>
-              Home
-            </Link>
-            <Link to="/invest" onClick={toggleMobileMenu}>
-              ROI
-            </Link>
-            <Link to="/paymentRazorpay" onClick={toggleMobileMenu}>
-              Invest
-            </Link>
-            <Link to="/location" onClick={toggleMobileMenu}>
-              Location
-            </Link>
+  {/* Navigation Links (Hidden on Mobile, Visible on Desktop) */}
+  <div
+    className={`nav-links md:flex items-center justify-start gap-7 fixed md:static top-16 left-0 w-full h-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-transform duration-300 ease-in-out md:text-[1rem] md:flex md:flex-row text-3xl flex flex-col ${
+      isMobileMenuOpen ? 'translate-y-0' : 'translate-y-full'
+    } md:translate-y-0`}
+    style={{ transitionProperty: 'transform, background-color' }}
+  >
+    <Link className="font-[600]" to="/" onClick={toggleMobileMenu}>
+      Home
+    </Link>
+    <Link to="/invest" onClick={toggleMobileMenu}>
+      ROI
+    </Link>
+    <Link to="/paymentRazorpay" onClick={toggleMobileMenu}>
+      Invest
+    </Link>
+    <Link className='mb-[16rem] md:mb-0' to="/location" onClick={toggleMobileMenu}>
+      Location
+    </Link>
+   <h1 className='md:hidden text-emerald-600 text-5xl font-semibold'>Grow Together</h1>
+    {/* Search Input (Only Visible on Desktop) */}
+    <div className="relative flex items-center hidden md:flex">
+      <FontAwesomeIcon icon={faSearch} className="absolute left-3 text-gray-400" />
+      <input
+        className="px-10 py-2 border border-gray-200 rounded-lg outline-none w-full"
+        type="text"
+        placeholder="Search for Properties"
+      />
+    </div>
+  </div>
+</nav>
 
-            {/* Search Input (Only Visible on Desktop) */}
-            <div className="relative flex items-center hidden md:flex">
-              <FontAwesomeIcon icon={faSearch} className="absolute left-3 text-gray-400" />
-              <input
-                className="px-10 py-2 border border-gray-200 rounded-lg outline-none w-full"
-                type="text"
-                placeholder="Search for Properties"
-              />
-            </div>
-          </div>
-        </nav>
         <div className="fixed z-[-1] h-screen w-full bg-[#EBECF0] flex items-center justify-start flex-col">
   <div className="h-full w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-[5rem] p-6">
     {/* Social Links Section */}
