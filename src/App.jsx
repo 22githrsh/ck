@@ -39,13 +39,15 @@ const App = () => {
     } md:translate-y-0`}
     style={{ transitionProperty: 'transform, background-color' }}
   >
-    <Link className="font-[600]" to="/" onClick={toggleMobileMenu}>
+    <Link className="font-[600] hover:text-emerald-600 transition-all" to="/" onClick={toggleMobileMenu}>
       Home
     </Link>
-    <Link to="/invest" onClick={toggleMobileMenu}>
+    <Link className='hover:text-emerald-600 transition-all' to="/invest" onClick={toggleMobileMenu}>
       ROI
     </Link>
-    
+    <Link className='hover:text-emerald-600 transition-all' to="/faq" onClick={toggleMobileMenu}>
+      FAQ 
+    </Link>
  
    <h1 className='md:hidden text-emerald-600 text-5xl font-semibold'>Grow Together</h1>
     {/* Search Input (Only Visible on Desktop) */}

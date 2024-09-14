@@ -475,7 +475,7 @@ const Home = () => {
       </div>
       <div className="page-3 h-screen w-full bg-[#EBECF0] flex flex-col md:flex-row items-start md:items-center justify-between relative overflow-hidden">
   <div className="p-4 md:p-0 md:w-1/2 items-end justify-center pt-[10rem]">
-    <h1 className="text-3xl md:ml-16 mb-4 md:mb-10 mt-4 md:mt-20"> {/* Adjusted margin-bottom for mobile */}
+    <h1 className="text-3xl md:ml-16 mb-4 md:mb-10 mt-4 md:mt-20 text-emerald-600"> {/* Adjusted margin-bottom for mobile */}
       {heading}
     </h1>
     <p className="w-full md:ml-16 md:w-2/3 text-lg md:text-2xl mt-2"> {/* Adjusted margin-top for mobile */}
@@ -483,28 +483,28 @@ const Home = () => {
     </p>
   </div>
   <div className="box-container h-64 md:h-screen w-full md:w-1/2 bg-yellow-500 relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1602205265393-06b5d1ee8ab7?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center mt-4 md:mt-0">
-    <div className="box1 h-[100%] w-full bg-green-500 absolute bottom-[-100%] rounded-lg overflow-hidden">
+    <div className="box1 h-[100%] w-full bg-een-500 absolute bottom-[-100%] rounded-lg overflow-hidden">
       <img
         className="h-full w-full object-cover rounded-lg"
         src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
     </div>
-    <div className="box2 h-[100%] w-full bg-red-500 absolute bottom-[-100%]">
+    <div className="box2 h-[100%] w-full  absolute bottom-[-100%]">
       <img
         className="h-full w-full object-cover rounded-lg"
         src="https://images.unsplash.com/photo-1533395427226-788cee25cc7b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
     </div>
-    <div className="box3 h-[100%] w-full bg-emerald-200 absolute bottom-[-100%]">
+    <div className="box3 h-[100%] w-full absolute bottom-[-100%]">
       <img
         className="h-full w-full object-cover rounded-lg"
         src="https://images.unsplash.com/photo-1552051263-6eb5bb6905b9?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
     </div>
-    <div className="box4 h-[100%] w-full bg-blue-500 absolute bottom-[-100%]">
+    <div className="box4 h-[100%] w-full  absolute bottom-[-100%]">
       <img
         className="h-full w-full object-cover rounded-lg"
         src="https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -544,6 +544,7 @@ const Home = () => {
 
           {/* Right Section */}
         </div>
+   
       </div>
       <section className="py-16 bg-white">
         <div className="container mx-auto px-8">
@@ -568,13 +569,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div className="page-6 h-screen w-full bg-[#EBECF0] flex justify-center items-center">
+      <div className="page-6 h-screen w-full bg-[#EBECF0] flex justify-center items-center flex-col">
         <div className="w-full sm:w-3/4 lg:w-1/2 p-5">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-6">
             Frequently Asked <span className="text-emerald-600">Question</span>
           </h1>
 
-          <div className="space-y-4">
+          <div className="space-y-4 mb-8">
             {faqData.map((faq, index) => (
               <div
                 key={index}
@@ -606,6 +607,7 @@ const Home = () => {
             ))}
           </div>
         </div>
+   
       </div>
       <div className="page-7 min-h-screen w-full bg-[#EBECF0] flex items-center justify-center pt-10 flex-col px-4">
         <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-semibold text-center mb-6">
@@ -615,7 +617,7 @@ const Home = () => {
           loop
           autoPlay
           muted
-          className="mb-8 sm:mb-16 h-[50vh] sm:h-[70vh] md:h-[80vh] w-full max-w-[1200px] object-cover bg-red-500 rounded-lg"
+          className="mb-8 sm:mb-16 h-[50vh] sm:h-[70vh] md:h-[80vh] w-full max-w-[1200px] object-cover  rounded-lg"
           src="https://videos.pexels.com/video-files/2887459/2887459-hd_1920_1080_25fps.mp4"
         ></video>
         <p className="text-xl sm:text-2xl md:text-3xl mb-6 text-center">
